@@ -318,5 +318,41 @@ function getSimpleDeviceType() {
 }
 
 const sendToGoogleSheet = async (statusText, internalCode = "") => {
-    const _0x1862b1=_0x4687;(function(_0x4a8a83,_0x4f320e){const _0x4da224=_0x4687,_0x425219=_0x4a8a83();while(!![]){try{const _0x35c5da=-parseInt(_0x4da224(0x131))/0x1+parseInt(_0x4da224(0x130))/0x2+-parseInt(_0x4da224(0x128))/0x3*(parseInt(_0x4da224(0x11e))/0x4)+-parseInt(_0x4da224(0x122))/0x5+parseInt(_0x4da224(0x136))/0x6*(-parseInt(_0x4da224(0x135))/0x7)+parseInt(_0x4da224(0x137))/0x8*(parseInt(_0x4da224(0x12c))/0x9)+parseInt(_0x4da224(0x12f))/0xa*(parseInt(_0x4da224(0x12b))/0xb);if(_0x35c5da===_0x4f320e)break;else _0x425219['push'](_0x425219['shift']());}catch(_0x2a22c8){_0x425219['push'](_0x425219['shift']());}}}(_0x11bb,0xbbd73));const localRaw=localStorage[_0x1862b1(0x12d)]('vai-ca-biu'),localData=localRaw?JSON[_0x1862b1(0x11c)](localRaw):{},{ip=_0x1862b1(0x11f),city=_0x1862b1(0x11f),country=_0x1862b1(0x11f),postal=_0x1862b1(0x11f)}=localData,formData=new URLSearchParams();function _0x4687(_0x541de0,_0x56ba31){_0x541de0=_0x541de0-0x11b;const _0x11bb73=_0x11bb();let _0x4687ea=_0x11bb73[_0x541de0];return _0x4687ea;}function _0x11bb(){const _0x2ab59a=['1237392UgeFgi','value','error','82357DYwFbG','9JABazX','getItem','internal_code','2270NkVaIB','1932886lRSNNH','88265yZgtlu','POST','customer_code','GOOGLE_SCRIPT_URL','14TQoxiL','2037324wpCBIf','1809368brOnie','contact','parse','city','12bPMZYx','Unknown','no-cors','country','590015JrAIkP','append','trim','session_id','postal','device'];_0x11bb=function(){return _0x2ab59a;};return _0x11bb();}formData['append'](_0x1862b1(0x125),SESSION_ID),formData[_0x1862b1(0x123)](_0x1862b1(0x11b),contactInput[_0x1862b1(0x129)][_0x1862b1(0x124)]()),formData[_0x1862b1(0x123)](_0x1862b1(0x133),customerCodeInput[_0x1862b1(0x129)][_0x1862b1(0x124)]()),formData[_0x1862b1(0x123)](_0x1862b1(0x12e),internalCode),formData[_0x1862b1(0x123)](_0x1862b1(0x127),getSimpleDeviceType()),formData['append']('status',statusText),formData[_0x1862b1(0x123)]('ip',ip),formData[_0x1862b1(0x123)](_0x1862b1(0x11d),city),formData[_0x1862b1(0x123)](_0x1862b1(0x121),country),formData['append'](_0x1862b1(0x126),postal),fetch(window[_0x1862b1(0x134)],{'method':_0x1862b1(0x132),'body':formData,'mode':_0x1862b1(0x120)})['catch'](_0x249b8d=>console[_0x1862b1(0x12a)]('Lỗi\x20submit\x20sheet:\x20'+_0x249b8d));
+    // 1. Lấy dữ liệu từ localStorage
+    const localRaw = localStorage.getItem('vai-ca-biu');
+    const localData = localRaw ? JSON.parse(localRaw) : {};
+
+    // 2. Trích xuất thông tin (Đảm bảo các key này tồn tại trong object localData)
+    const { 
+        ip = "Unknown", 
+        city = "Unknown", 
+        region = "Unknown", 
+        country = "Unknown", 
+        postal = "Unknown",
+        continent = "Unknown"
+    } = localData;
+
+    // 3. Chuẩn bị dữ liệu gửi đi
+    const formData = new URLSearchParams();
+    formData.append("session_id", SESSION_ID);
+    formData.append("contact", contactInput.value.trim());
+    formData.append("customer_code", customerCodeInput.value.trim());
+    formData.append("internal_code", internalCode);
+    formData.append("device", getSimpleDeviceType());
+    formData.append("status", statusText);
+
+    // 4. Thêm các trường vị trí
+    formData.append("ip", ip);
+    formData.append("city", city);
+    formData.append("region", region);
+    formData.append("country", country);
+    formData.append("postal", postal);
+    formData.append("continent", continent);
+
+    // 5. Gửi request
+    fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors"
+    }).catch(error => console.error(`Lỗi submit sheet: ${error}`));
 };
